@@ -13,8 +13,8 @@ import json
 #load dataset
 df = pd.read_csv("covid_country_data_perc.csv", index_col=0, na_filter=False, parse_dates=['Year-Month'], dtype={"Country/Region": str})
 
-with open('/Users/keke/Desktop/Data-Visualization/countries.geojson') as response:
-    counties = json.load(response)
+#with open('/Users/keke/Desktop/Data-Visualization/countries.geojson') as response:
+#    counties = json.load(response)
 
 app = Dash(__name__)
 
@@ -70,12 +70,6 @@ def update_graph(option_slctd):
     map_data.reset_index(inplace=True)
     map_data_final = map_data.rename(columns={'Country/Region': 'Country'})
 
-    #fig = px.choropleth(map_data_final, geojson=counties, locations='Country', color=option_slctd,featureidkey="properties.ADMIN",
-    #                       color_continuous_scale="Viridis",
-    #                       #range_color=(0, 12),
-    #                       #scope="world",
-    #                       labels={option_slctd:'Confirmed Case'}
-    #                      )
 
     #   Plotly Graph Objects (GO)
     fig = go.Figure(
